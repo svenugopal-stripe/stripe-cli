@@ -588,6 +588,7 @@ func addAllResourcesCmds(rootCmd *cobra.Command) {
 		"application_fee_amount":         "integer",
 		"auto_advance":                   "boolean",
 		"collection_method":              "string",
+		"currency":                       "string",
 		"customer":                       "string",
 		"days_until_due":                 "integer",
 		"default_payment_method":         "string",
@@ -618,6 +619,7 @@ func addAllResourcesCmds(rootCmd *cobra.Command) {
 	resource.NewOperationCmd(rInvoicesCmd.Cmd, "mark_uncollectible", "/v1/invoices/{invoice}/mark_uncollectible", http.MethodPost, map[string]string{}, &Config)
 	resource.NewOperationCmd(rInvoicesCmd.Cmd, "pay", "/v1/invoices/{invoice}/pay", http.MethodPost, map[string]string{
 		"forgive":          "boolean",
+		"mandate":          "string",
 		"off_session":      "boolean",
 		"paid_out_of_band": "boolean",
 		"payment_method":   "string",
